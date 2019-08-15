@@ -3,28 +3,28 @@
 Currently the physical chemistry is frequently taught in a classical way,
 meaning that simplified mathematical models are used to allow analytical
 solutions for given problems. Despite being a brilliant tool to demonstrate
-the power of mathematical analysis (which is usually taught at the same time
+the power of calculus (which is usually taught at the same time
 or a semester before physical chemistry) it suffers from incompleteness.
 Truly, the world we are living in can not be efficiently described by 
 models like an ideal gas, which are still of great interest for pedagogical 
 purposes. On the other hand, more complex models, even though more successful
-in nature behavior prediction, con not be solved analytically and 
+in nature behavior prediction, can not be solved analytically and 
 rely on numerical methods for finding answers.
 
 Author has been deeply disappointed by the fearful attitude to
-computers from both students and tutors which takes place 
+computers of both students and tutors which takes place 
 in the physical chemistry classes. Even in the rare cases when
 numerical methods were actually applied to chemical problems,
 they were limited either to proprietary software which is
 too expensive and thus unavailable for the majority of students
 or to custom automated routines which
-hide the methods and "magically" give answers.
+hide the solving methods and "magically" give answers.
 Another extreme is teaching students to solve problems
 in the MS Excel which is, again, may be unavailable due
 to its proprietary nature and is extremely inefficient for
-solving any serious problems.
+solving any advanced problems.
 
-All of these have inspired the author to prepare a small set of materials
+These issues have inspired the author to prepare a small set of materials
 that could be helpful to anyone, studying physical chemistry.
 The [Python](https://www.python.org/) programming language will be used here.
 It was selected because of its simplicity, stability,
@@ -42,7 +42,7 @@ chemistry students have no background in programming, and could be afraid of it.
 In this chapter the minimal subset of Python features needed for chemist
 will be explained.
 
-2. **Numerical methods in and how to use them in Python**
+2. **Numerical methods and how to use them in Python**
 	Various numerical methods, useful for physical chemistry
 will be explained without going into details. Expect mostly practical point
 of view.
