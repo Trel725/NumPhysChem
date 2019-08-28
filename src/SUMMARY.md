@@ -1,4 +1,5 @@
 # Summary
 
 - [Motivation](./motivation.md)
-- [Chapter 1. Programming basics](./programming.md)
+- [Python programming basics](./programming.md)
+- [NumPy basics](./numpy.md)

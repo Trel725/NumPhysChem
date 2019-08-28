@@ -1,4 +1,4 @@
-# Chapter 1. Motivation
+# Motivation
 
 Currently the physical chemistry is frequently taught in a classical way,
 meaning that simplified mathematical models are used to allow analytical
