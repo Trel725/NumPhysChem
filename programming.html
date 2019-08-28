@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Python programming basics - Physical Chemistry: A numerical approach</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="motivation.html"><strong aria-hidden="true">1.</strong> Motivation</a></li><li><a href="programming.html" class="active"><strong aria-hidden="true">2.</strong> Python programming basics</a></li><li><a href="numpy.html"><strong aria-hidden="true">3.</strong> NumPy basics</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Physical Chemistry: A numerical approach</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#python-programming-basics" id="python-programming-basics">Python programming basics</a></h1>
+<p>To get started, firstly Python need to be installed,
+which could be easily done by following instructions
+from official <a href="https://www.python.org/">website</a>.
+This will create minimal setup, enough for work. Still,
+more complex program, called <a href="https://www.spyder-ide.org/">Spyder IDE</a> 
+(for Integrated Development Environment) is much more convinient to use.
+Here and in following parts it is assumed that reader 
+uses Python 3.7, which is the latest version of the
+software at the moment of writing. Some examples
+may use the functionality of Spyder, nevertheless 
+they could be done in any preferred code editor.</p>
+<p>Any computer program is nothing more than a sequence of 
+simple commands. The programming languages are divided
+into two main cathegories: compiled and interpreted. 
+The formers are languages which are directly translated
+into machine code, that runs on real hardware. Nevertheless
+this is the only way to efficiently utilize computational
+resources it requires much more care and experience.
+The second type, interpreted languages are actually
+commands to another program, called interpreter.
+This gives, at the price of speed, ability to make
+programming much closer to the human thinking.</p>
+<p>As a simple example, lets start with the following program:</p>
+<pre><code class="language-python">print(&quot;This is&quot;)
+print(&quot;Physical&quot;)
+print(&quot;Chemistry&quot;)
+</code></pre>
+<p>The output of this command sequence will be:</p>
+<pre><code>This is
+Physical
+Chemistry
+</code></pre>
+<p>As you may guess command <em>print</em> prints the
+string to the console.</p>
+<p>The parenthesis means that <em>print</em> is a function
+which is <em>called</em>:</p>
+<pre><code>print - function name
+print() - function call
+</code></pre>
+<p>This syntax is inspired from the mathematics, where
+arguments are written in parenthesis:
+
+f - function
+f(x) - function with argument x</p>
+<p>Similarly, in Python functions may have arguments, 
+but in contrast to math, function are not necessary
+returns value. This is sometimes called procedure,
+i.e. the piece of code which does something useful.</p>
+<p>Thus command</p>
+<pre><code class="language-Python">print(&quot;Chemistry&quot;)
+</code></pre>
+<p>means to call the function (indicated by parenthesis), named 
+<em>print</em> with argument &quot;Chemistry&quot;.</p>
+<h2><a class="header" href="#data-types" id="data-types">Data types</a></h2>
+<p>Why &quot;Chemistry&quot; is enclosed in the quotation mark?
+This follows from the so called type system. 
+Due to inability of machine to handle any data which
+is entered, the types are intriduced, which describe how
+to work with different information. With some imagination,
+similar concept could be found in math, for example a 
+real number, complex number, vector, matrix, etc.
+Any of this entities is a type, i.e. a set of operations
+are defined for them. For example it is known how to add
+real numbers or matrices, but it is nonsense to add
+matrices to reals. On the other hand, real and
+complex number could be added if we will think of
+real as of complex with zero imaginary part. This 
+thinking is called type casting in computer science
+and is very useful sometimes.</p>
+<p>Python is a dynamically typed language, which means that
+in majority of cases it is not needed neither to bother with data type
+nor to define it explicitly. The program will automatically understand 
+what is meant. </p>
+<pre><code class="language-python">a = 1.0 # float
+b = 42 # integer 
+c = 2.0+1j # complex
+s = &quot;Chemistry&quot; # string
+t = True # boolean
+</code></pre>
+<p>This are the most commonly used data types.
+Float, recognized by dot, integer, a simple number,
+complex, having both real and imaginary part, string
+which should be enclosed into &quot;double&quot; or 'single' quotation
+marks (but don't mix them!) or boolean which could have only
+two values, True and False. The letters here are variables,
+which are aliases for the given numbers. Now, it is possible to use
+this variables to perfrom basic mathematical operations. </p>
+<p>As an example, in Spyder click on File tab and create new file.
+The text editor should open new tab, named &quot;untitled.py&quot; or similar.
+Enter the commands from above and
+click on the green triangle on top of the window to run the
+file.
+Spyder will ask for filename to save the program, which
+should be something reasonable. After saving, the program
+will run and five variables will be created in the computer memory.
+In the
+right bottom corner of the Spyder there is a window, called
+IPython console. It is very useful for evaluating of the small
+commands without need to completely re-run the program.
+Now enter <code>b+b</code> to the console. As the script (Python programs
+are frequently called scripts) have been already run, the variables
+exists in memory and could be manipulated from the console.</p>
+<pre><code>In[7]: b+b
+Out[7]: 84
+In[8]: a+a
+Out[8]: 2.0
+In [9]: a+b
+Out[9]: 43.0
+</code></pre>
+<p>Note that if two integer numbers are added, the result is integer as well.
+In case of two floats, result is a float, but in case of float and integer
+result is casted to the float, i.e. integer 42 is understood as the float 42.0.</p>
+<p>Another important consequnece of typing system is additional error detection.</p>
+<pre><code>In [12]: a+s
+Traceback (most recent call last):
+
+  File &quot;&lt;ipython-input-12-4d0c24e003cf&gt;&quot;, line 1, in &lt;module&gt;
+    a+s
+
+TypeError: unsupported operand type(s) for +: 'float' and 'str'
+</code></pre>
+<p>This clearly indicates that it is nonsence to add number to a string.
+Still, typing error can not provide 100 % error detection, because 
+conviniece is on the first place. The language definces some operations, which
+are not mathematically correct, but very useful, such as string addition:</p>
+<pre><code>In [13]: s+s
+Out[13]: 'ChemistryChemistry'
+</code></pre>
+<p>Still, in majority cases it is not necessary to bother much about types.</p>
+<h2><a class="header" href="#data-structures" id="data-structures">Data structures</a></h2>
+<p>In general, we use computers to process some data. This is why programming
+languages have developed rich system of data structures.</p>
+<ol>
+<li>Lists</li>
+</ol>
+<p>Lists are sequences of variables of same or different types:</p>
+<pre><code class="language-python">lst1 = [1, 2, 3]
+lst2 = [1.0, 2.0, 3.0]
+lst3 = [1, 2.0, &quot;Python&quot;]
+</code></pre>
+<p>They allow to store information, which should be grouped together.
+New items could be appended to the lists using a <strong>method</strong> <em>append</em>.
+Method is a function which is bound to the own data structure. 
+E.g. to add the number 5 to above-defined lst1.</p>
+<pre><code>In [16]: print(lst1)
+[1, 2, 3]
+
+In [17]: lst1.append(5)
+
+In [18]: print(lst1)
+[1, 2, 3, 5]
+</code></pre>
+<p>To insert number 6 to other position method <em>insert</em> exists:</p>
+<pre><code>In [20]: lst1.insert(2, 6)
+
+In [21]: print(lst1)
+[1, 2, 6, 3, 5]
+</code></pre>
+<p>Obtained list could be sorted with <em>sort</em>:</p>
+<pre><code>In [22]: lst1.sort()
+
+In [23]: lst1
+Out[23]: [1, 2, 3, 5, 6]
+</code></pre>
+<ol start="2">
+<li>Tuples</li>
+</ol>
+<p>Tuples are similar to lists but immutable, i.e. after definition
+they could not be changed anymore. </p>
+<pre><code class="language-python">tpl=(2, 4)
+</code></pre>
+<p>They are useful for multiple definitions:</p>
+<pre><code>(a, b, c) = (1, 2, 3)
+</code></pre>
+<p>This will create three variables in a one string.</p>
+<ol start="3">
+<li>NumPy types</li>
+</ol>
+<p>Vanilla Python is not well suited to scientific calculations due to 
+absence of arrays, special data structures which efficiently 
+handles sequences of the <strong>same type</strong>, which could consist
+of millions of units. This is why NumPy (numerical Python)
+module was developed. It introduces few important types,
+but worth separate discussion in following chapter.</p>
+<h2><a class="header" href="#iterating" id="iterating">Iterating</a></h2>
+<p>One of the most important structures in programming are loops,
+which are a method to make a computer performs large amount of
+routine operations. The most important type of loop in Python
+are <strong>for</strong> loops, usage of which are demonstrated below:</p>
+<pre><code class="language-python">for elem in lst1:
+    print(elem)
+</code></pre>
+<pre><code>1
+2
+3
+5
+6
+</code></pre>
+<p>The main idea here is that for loop splits an <em>iterable</em> (common name
+for data types, which could be split, such as list in that case) into elements, and assign
+the value of this element to variable, which is specified in the loop declaration
+(elem in that case). This is <em>very powerful</em> programming technique. E.g. to calculate
+the seconds powers of the numbers in list:</p>
+<pre><code class="language-python">for elem in lst1:
+    print(elem**2)
+</code></pre>
+<pre><code>1
+4
+9
+25
+36
+</code></pre>
+<p>Or to calculate the sum of list:</p>
+<pre><code class="language-python">sm = 0 # initialize the variable to hold the sum
+for elem in lst1: 
+    sm += elem # add value of each element to the sum
+print(sm) # output result
+</code></pre>
+<p>Note that the <em>body</em> of cycle (the part of code that is executed
+on every iteration is separated by tab or four spaces), while
+parts, that should be executed only once (sum initialization and printing)
+are not separated.</p>
+<h2><a class="header" href="#indexing" id="indexing">Indexing</a></h2>
+<p>Iterables could be indexed with the square brackets, with numbering starting at zero.</p>
+<pre><code>In [49]: print(lst1)
+[1, 2, 3, 5, 6]
+
+In [50]: print(lst1[0])
+1
+
+In [51]: print(lst1[3])
+5
+</code></pre>
+<h2><a class="header" href="#functions" id="functions">Functions</a></h2>
+<p>In programming, functions could have two meanings without 
+clear difference between them. First kind is a function
+in mathematical sence, which takes an input and returns 
+output, for example:</p>
+<pre><code class="language-python">def square(nmbr):
+    result = nmbr**2
+    return result
+</code></pre>
+<p>This function takes argument, which becomes available inside the function
+body under alias <em>nmbr</em>, creates new variable <em>result</em>, squares the number (
+double asterisk is a raising to power operator), puts the square
+into the result variable and returns it. The body of function is 
+separated by the tabs or spaces in the same manner as for loop. 
+Keyword <strong>return</strong> means that this value is the output of the function.
+Now, it can be used as:</p>
+<pre><code>In [41]: var = square(5)
+
+In [42]: print(var)
+25
+</code></pre>
+<p>Another types of functions are a pieces of code, which just executed, but does not
+return anything.</p>
+<pre><code class="language-python">def greeting():
+    print(&quot;Hello, user&quot;)
+</code></pre>
+<pre><code>In [55]: greeting()
+Hello, user
+</code></pre>
+<p>It is possible combine both approaches:</p>
+<pre><code class="language-python">def greeting(name):
+    print(&quot;Hello&quot;, name)
+</code></pre>
+<pre><code>In [61]: greeting(&quot;Alex&quot;)
+Hello Alex
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="motivation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="numpy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="motivation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="numpy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
