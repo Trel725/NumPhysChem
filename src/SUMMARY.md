@@ -1,3 +1,4 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
+- [Motivation](./motivation.md)
+- [Chapter 1. Programming basics](./programming.md)
